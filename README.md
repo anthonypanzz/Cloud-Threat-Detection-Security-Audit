@@ -126,9 +126,8 @@ Since they must comply with strict regulations, missing a misconfiguration or un
 
 - Detects misconfigurations, like open security groups or public S3 buckets.
 
-- Views compliance reports for our insecure resources.
+- Views compliance reports for the insecure resources.
 
-- Understands how Config complements GuardDuty.
 
 **In the insecure setup:**
 
