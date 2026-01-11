@@ -154,7 +154,7 @@ Since they must comply with strict regulations, missing a misconfiguration or un
 
 ---
 
-## While GuardDuty and Config Rules provide strong built-in detection, sometimes you need custom checks for your own environment.
+## While GuardDuty and Config Rules provide strong built-in detection, you need custom checks for your own environment.
 
 **In this step, I created a Lambda function that runs a lightweight security audit:**
 
