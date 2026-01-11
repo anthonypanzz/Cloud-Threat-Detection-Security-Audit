@@ -15,7 +15,7 @@ Since they must comply with strict regulations, missing a misconfiguration or un
 
 # Solution:
 
-**We built a Cloud Threat Detection & Security Audit System that:**
+**I've built a Cloud Threat Detection & Security Audit System that:**
 
 - Deploys intentionally insecure resources automatically using AWS CloudFormation.
 
