@@ -20,6 +20,7 @@ A mid-sized fintech company is expanding rapidly in the cloud. With dozens of AW
 - Sends proactive alerts to the security team via Amazon SNS.
 
 **This system enables the company to catch issues like public S3 buckets, risky IAM users, or open security groups before attackers or auditors find them.**
+
 **These concepts are critical because cloud environments change rapidly, and relying only on manual checks is not enough. Automated detection ensures security gaps are caught early.**
 
 ---
