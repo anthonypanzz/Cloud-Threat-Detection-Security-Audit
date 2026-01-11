@@ -25,7 +25,9 @@ A mid-sized fintech company is expanding rapidly in the cloud. With dozens of AW
 
 ---
 
-## To test Lambda Audit Function, Config, and SNS alerts, we need resources that are deliberately insecure. These resources simulate real-world security risks:
+## To test Lambda Audit Function, Config, and SNS alerts, we need resources that are deliberately insecure. 
+
+**These resources simulate real-world security risks:**
 
 - An EC2 instance with a wide-open security group (0.0.0.0/0).
 - An S3 bucket with public read access.
