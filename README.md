@@ -180,7 +180,6 @@ Since they must comply with strict regulations, missing a misconfiguration or un
 
 - In production, findings should be sent to SNS → Email/Slack or a ticketing system.
 
-- Use this Lambda as a template: add more checks for your environment.
 
 ---
 
