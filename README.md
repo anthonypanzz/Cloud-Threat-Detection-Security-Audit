@@ -1,6 +1,16 @@
 ![Alt text](/threatdetect.drawio.png)
 
+- **CloudFormation** deploys intentionally insecure resources, EC2, open SSH, S3 public access, and IAM user admin access.
 
+- **GuardDuty** continuously analyzes logs and detects suspicious activity.
+
+- **AWS Config** evaluates resources against compliance rules like public S3 buckets and open ports.
+
+- **Lambda audit function** performs custom checks for risky IAM users and public S3 buckets.
+
+- **SNS** sends real-time alerts via email to the Security Engineering team.
+
+---
 
 
 # Scenario:
