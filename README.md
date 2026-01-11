@@ -1,3 +1,6 @@
+# Cloud Threat Detection and Security Audit
+
+
 ![Alt text](/threatdetect.drawio.png)
 
 - **CloudFormation** deploys intentionally insecure resources, EC2, open SSH, S3 public access, and IAM user admin access.
