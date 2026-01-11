@@ -84,11 +84,11 @@ It continuously analyzes:
 
 ## Config continuously records configuration changes and evaluates them against predefined rules or your own custom rules.
 
-**By enabling Config, we’ll:**
+**By enabling Config:**
 
-- Detect misconfigurations, like open security groups or public S3 buckets.
-- View compliance reports for our insecure resources.
-- Understand how Config complements GuardDuty.
+- Detects misconfigurations, like open security groups or public S3 buckets.
+- Views compliance reports for our insecure resources.
+- Understands how Config complements GuardDuty.
 
 **In the insecure setup:**
 
@@ -131,7 +131,9 @@ Use this Lambda as a template: add more checks for your environment.
 
 ---
 
-## Security monitoring is incomplete without notifications. By integrating Amazon SNS directly into our Lambda function, we can immediately send email alerts whenever a GuardDuty finding, Config violation, or Lambda audit result is detected.
+## Security monitoring is incomplete without notifications. 
+
+**By integrating Amazon SNS directly into our Lambda function, we can immediately send email alerts whenever a GuardDuty finding, Config violation, or Lambda audit result is detected.**
 
 <img width="1880" height="649" alt="Screenshot 2026-01-10 140928" src="https://github.com/user-attachments/assets/b28d1764-a61b-4bd8-a5ea-c9bbb3540fb1" />
 <img width="1545" height="534" alt="Screenshot 2026-01-10 141127" src="https://github.com/user-attachments/assets/87a0f2b2-d76e-4154-a840-73e33bbe1b4f" />
