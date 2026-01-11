@@ -5,7 +5,11 @@
 
 # Scenario:
 
-A mid-sized fintech company is expanding rapidly in the cloud. With dozens of AWS accounts and services being deployed, the security team struggles to keep track of risks such as public S3 buckets, open security groups, and unused IAM keys. Since they must comply with strict regulations, missing a misconfiguration or unusual login attempt could expose sensitive financial data and result in compliance violations.
+A mid-sized fintech company is expanding rapidly in the cloud. 
+
+With dozens of AWS accounts and services being deployed, the security team struggles to keep track of risks such as public S3 buckets, open security groups, and unused IAM keys. 
+
+Since they must comply with strict regulations, missing a misconfiguration or unusual login attempt could expose sensitive financial data and result in compliance violations.
 
 ---
 
@@ -14,9 +18,13 @@ A mid-sized fintech company is expanding rapidly in the cloud. With dozens of AW
 **We built a Cloud Threat Detection & Security Audit System that:**
 
 - Deploys intentionally insecure resources automatically using AWS CloudFormation.
+
 - Detects suspicious activity in near real-time using Amazon GuardDuty.
+
 - Monitors for misconfigurations automatically with AWS Config Rules.
+
 - Runs lightweight custom Lambda audits to check IAM and S3.
+
 - Sends proactive alerts to the security team via Amazon SNS.
 
 **This system enables the company to catch issues like public S3 buckets, risky IAM users, or open security groups before attackers or auditors find them.**
@@ -30,11 +38,15 @@ A mid-sized fintech company is expanding rapidly in the cloud. With dozens of AW
 **These resources simulate real-world security risks:**
 
 - An EC2 instance with a wide-open security group (0.0.0.0/0).
+
 - An S3 bucket with public read access.
+
 - An IAM user with AdministratorAccess policy.
 
 - EC2 Instance → Acts as a vulnerable server.
+
 - S3 Bucket → Exposes sensitive data if left public.
+
 - IAM User → Demonstrates the dangers of over-privileged accounts.
 
 ---
@@ -47,7 +59,9 @@ A mid-sized fintech company is expanding rapidly in the cloud. With dozens of AW
 
 ## Best Practice:
 - Always enable S3 Block Public Access in real environments.
+
 - IAM users with AdministratorAccess should be replaced with IAM roles and least-privilege access.
+
 - Security groups should never allow 0.0.0.0/0 for all ports.
 
 ---
@@ -58,7 +72,9 @@ Amazon GuardDuty provides intelligent threat detection across your AWS environme
 It continuously analyzes:
 
 - CloudTrail Logs → API activity
+
 - VPC Flow Logs → Network traffic
+
 - DNS Logs → Domain queries
 
 **GuardDuty detects suspicious patterns such as unusual logins, privilege escalations, port scanning, and crypto-mining attempts.**
@@ -68,8 +84,11 @@ It continuously analyzes:
 **Generating sample findings.**
 **This injects test alerts such as:**
 - Recon:EC2/PortProbeUnprotectedPort
+
 - UnauthorizedAccess:IAMUser/ConsoleLogin
+
 - Trojan:EC2/BitcoinTool.B
+
 <img width="1900" height="824" alt="Screenshot 2026-01-10 142753" src="https://github.com/user-attachments/assets/23e44e4f-1723-4a26-b05e-e288b36e9677" />
 
 ## Best Practice:
@@ -87,13 +106,17 @@ It continuously analyzes:
 **By enabling Config:**
 
 - Detects misconfigurations, like open security groups or public S3 buckets.
+
 - Views compliance reports for our insecure resources.
+
 - Understands how Config complements GuardDuty.
 
 **In the insecure setup:**
 
 - EC2 Security Group (0.0.0.0/0) → Should fail the rule restricted-ssh.
+
 - Public S3 Bucket → Should fail the rule s3-bucket-public-read-prohibited.
+
 - IAM User with Admin → Can be flagged with iam-user-no-policies-check.
 
 <img width="1877" height="686" alt="Screenshot 2026-01-10 142835" src="https://github.com/user-attachments/assets/9081747b-69dc-427f-857a-8d7973a71da9" />
@@ -102,8 +125,11 @@ It continuously analyzes:
 
 ## Best Practice:
 - Always enable AWS Config in all regions for full coverage.
+
 - Pair Config with Auto Remediation (e.g., automatically close open SG ports).
+
 - Forward Config compliance data to Security Hub for a centralized view.
+
 - Treat Config as your compliance baseline, and GuardDuty as your threat detection layer.
 
 ---
@@ -113,10 +139,13 @@ It continuously analyzes:
 **In this step, I created a Lambda function that runs a lightweight security audit:**
 
 - Checks if any S3 buckets are public.
+
 - Checks if any IAM users have AdministratorAccess.
 
 - Lambda Function → Runs on demand or scheduled to scan your account.
+
 - AWS SDK (boto3 via Lambda runtime) → Calls S3 + IAM APIs to check misconfigurations.
+
 - CloudWatch Logs → Stores audit results.
 
 <img width="1894" height="566" alt="Screenshot 2026-01-10 143422" src="https://github.com/user-attachments/assets/9d495c43-d9e4-4957-b031-22a089d17b79" />
@@ -124,10 +153,14 @@ It continuously analyzes:
 <img width="1874" height="385" alt="Screenshot 2026-01-10 135045" src="https://github.com/user-attachments/assets/7b1a0a9c-5afb-464a-866e-962982a760cc" />
 
 ## Best Practice:
-Custom Lambda checks are great for quick wins but don’t replace Config Rules or Security Hub.
-Keep findings actionable, avoid alert fatigue.
-In production, findings should be sent to SNS → Email/Slack or a ticketing system.
-Use this Lambda as a template: add more checks for your environment.
+
+- Custom Lambda checks are great for quick wins but don’t replace Config Rules or Security Hub.
+
+- Keep findings actionable, avoid alert fatigue.
+
+- In production, findings should be sent to SNS → Email/Slack or a ticketing system.
+
+- Use this Lambda as a template: add more checks for your environment.
 
 ---
 
@@ -140,7 +173,9 @@ Use this Lambda as a template: add more checks for your environment.
 
 ## Best Practice:
 - In production, always use least privilege instead of full AmazonSNSFullAccess.
+
 - SNS can also integrate with Slack, Lambda, or HTTP endpoints for broader workflows.
+
 - Keep emails concise, too many alerts = alert fatigue.
 
 ---
@@ -150,6 +185,8 @@ Use this Lambda as a template: add more checks for your environment.
 ## This project reflects real-world security practices by combining threat detection, compliance checks, custom auditing, and automated alerts in a cloud environment.
 
 - For real-world setups, integrate GuardDuty + Config with AWS Security Hub for centralized compliance.
+
 - Always review and scope IAM permissions to least privilege.
+
 - Regularly schedule security audits and route alerts to a dedicated incident response team.
 
