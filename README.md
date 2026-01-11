@@ -93,7 +93,7 @@ Since they must comply with strict regulations, missing a misconfiguration or un
 
 **GuardDuty detects suspicious patterns such as unusual logins, privilege escalations, port scanning, and crypto-mining attempts.**
 
-**By enabling it, we let AWS automatically monitor our intentionally insecure resources.**
+**By enabling it, we let AWS automatically monitor the intentional insecure resources.**
 
 **Generating sample findings.**
 **This injects test alerts such as:**
