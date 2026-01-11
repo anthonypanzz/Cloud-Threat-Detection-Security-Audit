@@ -60,9 +60,11 @@ It continuously analyzes:
 - CloudTrail Logs → API activity
 - VPC Flow Logs → Network traffic
 - DNS Logs → Domain queries
+
 **GuardDuty detects suspicious patterns such as unusual logins, privilege escalations, port scanning, and crypto-mining attempts.**
 
 **By enabling it, we let AWS automatically monitor our intentionally insecure resources.**
+
 **Generating sample findings.**
 **This injects test alerts such as:**
 - Recon:EC2/PortProbeUnprotectedPort
