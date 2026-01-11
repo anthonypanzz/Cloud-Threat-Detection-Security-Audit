@@ -67,9 +67,10 @@ Since they must comply with strict regulations, missing a misconfiguration or un
 ---
 
 ## Detects suspicious activity in near real-time using Amazon GuardDuty.
-Amazon GuardDuty provides intelligent threat detection across your AWS environment.
 
-It continuously analyzes:
+**Amazon GuardDuty provides intelligent threat detection across your AWS environment.**
+
+**It continuously analyzes:**
 
 - CloudTrail Logs → API activity
 
@@ -83,6 +84,7 @@ It continuously analyzes:
 
 **Generating sample findings.**
 **This injects test alerts such as:**
+
 - Recon:EC2/PortProbeUnprotectedPort
 
 - UnauthorizedAccess:IAMUser/ConsoleLogin
@@ -92,9 +94,13 @@ It continuously analyzes:
 <img width="1900" height="824" alt="Screenshot 2026-01-10 142753" src="https://github.com/user-attachments/assets/23e44e4f-1723-4a26-b05e-e288b36e9677" />
 
 ## Best Practice:
+
 - GuardDuty should be enabled in every AWS region (attackers often target unused ones).
+
 - Findings can be sent to CloudWatch Events/EventBridge for automated remediation.
+
 - In production, forward findings to AWS Security Hub or a SIEM tool for centralized monitoring.
+
 - GuardDuty is low maintenance, once enabled, it continuously runs in the background.
 
 ---
@@ -124,9 +130,10 @@ It continuously analyzes:
 
 
 ## Best Practice:
+
 - Always enable AWS Config in all regions for full coverage.
 
-- Pair Config with Auto Remediation (e.g., automatically close open SG ports).
+- Pair Config with Auto Remediation, automatically close open SG ports.
 
 - Forward Config compliance data to Security Hub for a centralized view.
 
@@ -172,6 +179,7 @@ It continuously analyzes:
 <img width="1545" height="534" alt="Screenshot 2026-01-10 141127" src="https://github.com/user-attachments/assets/87a0f2b2-d76e-4154-a840-73e33bbe1b4f" />
 
 ## Best Practice:
+
 - In production, always use least privilege instead of full AmazonSNSFullAccess.
 
 - SNS can also integrate with Slack, Lambda, or HTTP endpoints for broader workflows.
